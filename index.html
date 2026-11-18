@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vu Linh Chi · Personal Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Unbounded:wght@500;700;900&family=Caveat:wght@600;700&family=Yellowtail&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#FFF5EC; --cream2:#FCE9DC; --ink:#3A2A2F; --ink2:#6E5A60;
+  --pink:#F58BA3; --hot:#EE6F92; --yellow:#FFD84D; --purple:#8C7BD6; --orange:#F2683C; --mint:#8FD3BE;
+  --r:28px;
+  --disp:'Unbounded',system-ui,sans-serif; --body:'Be Vietnam Pro',system-ui,sans-serif; --hand:'Caveat',cursive;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit}
+button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+.wrap{max-width:1240px;margin:0 auto;padding:0 24px}
+
+/* ---------- NAV ---------- */
+.nav{position:sticky;top:14px;z-index:40;display:flex;justify-content:space-between;align-items:center;gap:12px;max-width:1240px;margin:14px auto 0;padding:0 24px;pointer-events:none}
+.nav>*{pointer-events:auto}
+.pill{background:#fff;border-radius:999px;box-shadow:0 4px 20px rgba(58,42,47,.08)}
+.nav-l{display:flex;align-items:center;gap:22px;padding:8px 22px 8px 10px}
+.logo{font-family:var(--disp);font-weight:900;font-size:20px;color:var(--hot);text-decoration:none;display:flex;align-items:center;gap:8px}
+.logo i{width:34px;height:34px;border-radius:50%;background:var(--pink);display:grid;place-items:center;color:#fff;font-style:normal;font-size:14px}
+.nav-l nav{display:flex;gap:20px;font-size:14px;font-weight:500}
+.nav-l nav a{text-decoration:none}
+.nav-l nav a:hover{color:var(--hot)}
+.nav-r{display:flex;align-items:center;gap:8px;padding:6px 6px 6px 18px;font-size:14px;font-weight:600}
+.nav-r .dot{width:34px;height:34px;border-radius:50%;background:var(--cream2);display:grid;place-items:center;text-decoration:none}
+
+/* ---------- HERO ---------- */
+.hero{position:relative;margin:-58px 12px 0;background:var(--pink);border-radius:0 0 40px 40px;padding:130px 0 120px;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center;position:relative;z-index:2}
+.eyebrow{display:inline-block;background:rgba(255,255,255,.35);color:#fff;border-radius:999px;padding:4px 16px;font-size:13px;font-weight:600;letter-spacing:.04em}
+.hero h1{font-family:var(--disp);font-weight:900;color:var(--cream);font-size:clamp(40px,6.4vw,86px);line-height:.98;letter-spacing:-.02em;margin:18px 0 6px;text-transform:uppercase}
+.hero h1 .hand{font-family:var(--hand);text-transform:none;color:var(--yellow);font-weight:700;font-size:1.05em;letter-spacing:0;display:inline-block;transform:rotate(-4deg);margin-left:6px}
+
+.hero h1.pop{display:flex;flex-direction:column;gap:.22em;line-height:.95;margin-bottom:.4em;font-size:clamp(44px,6.7vw,98px);letter-spacing:.01em}
+.hero h1.pop .l1,.hero h1.pop .l2{display:block;white-space:nowrap}
+.hero h1.pop .l1{color:var(--cream);text-shadow:3px 3px 0 var(--hot),7px 7px 0 var(--ink)}
+.hero h1.pop .l2{color:var(--yellow);transform:rotate(-2.5deg);transform-origin:left;margin-left:.15em;position:relative;text-shadow:3px 3px 0 var(--hot),7px 7px 0 var(--ink)}
+.hero h1.pop .l2::after{content:"";position:absolute;left:0;right:1.4em;bottom:-.18em;height:.22em;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 12'%3E%3Cpath d='M2 8 Q 12 2 22 8 T 42 8 T 62 8 T 82 8 T 102 8 T 118 8' fill='none' stroke='%23FFF5EC' stroke-width='3.2' stroke-linecap='round'/%3E%3C/svg%3E") repeat-x;background-size:auto 100%}
+.hero h1.pop .ch{display:inline-block;margin-right:.02em;animation:popin .7s cubic-bezier(.3,1.6,.5,1) both;transition:transform .25s cubic-bezier(.3,1.8,.5,1)}
+.hero h1.pop .ch:hover{transform:translateY(-.14em) rotate(-6deg)}
+@keyframes popin{from{opacity:0;transform:translateY(.6em) scale(.6) rotate(8deg)}}
+.hero h1.pop .hand{font-size:.8em;text-shadow:none;animation:spin 8s linear infinite;display:inline-block;transform:none;margin-left:.1em}
+.hero p.lead{color:#fff;font-size:18px;max-width:520px;margin-top:14px}
+.hero p.lead b{font-weight:700}
+.hero p.lead i{font-style:normal;background:rgba(255,255,255,.22);border-radius:6px;padding:0 6px}
+.welcome{display:inline-block;font-family:var(--hand);font-weight:700;color:var(--yellow);background:var(--ink);font-size:clamp(26px,2.8vw,36px);line-height:1.1;margin-top:16px;padding:6px 20px 8px;border-radius:14px;transform:rotate(-2deg);transform-origin:left;box-shadow:5px 5px 0 var(--hot)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 28px}
+.chip{background:rgba(255,255,255,.95);color:var(--ink);border-radius:999px;padding:9px 18px;font-size:14.5px;font-weight:700}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:14px 26px;font-weight:600;text-decoration:none;font-size:15px;transition:transform .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn.y{background:var(--yellow);color:var(--ink)}
+.btn.o{border:1.5px solid rgba(255,255,255,.8);color:#fff}
+.portrait{position:relative;justify-self:end;width:100%;max-width:640px;padding-top:110px}
+.pic{position:relative;width:74%;margin-left:26%}
+.pic .blob{position:absolute;inset:10% -4% 0 -4%;background:var(--yellow);border-radius:48% 52% 40% 60%/55% 45% 55% 45%;transform:rotate(-6deg)}
+.pic img.me{position:relative;width:100%;filter:drop-shadow(0 18px 30px rgba(120,30,60,.25));transform:rotate(2deg)}
+.stk{position:absolute;left:-2%;top:46%;width:28%;display:flex;flex-direction:column;align-items:flex-start;gap:16px;z-index:3}
+.sticker{position:relative;font-family:var(--disp);font-weight:700;font-size:clamp(9.5px,.8vw,11px);border-radius:999px;padding:7px 12px;box-shadow:0 6px 16px rgba(58,42,47,.15);border:2.5px solid #fff;text-transform:uppercase;letter-spacing:.02em;white-space:nowrap}
+.st1{background:var(--purple);color:#fff;transform:rotate(-8deg)}
+.st2{background:var(--orange);color:#fff;transform:rotate(6deg);margin-left:16%}
+.st3{background:#fff;color:var(--hot);transform:rotate(-4deg);border-color:var(--yellow);margin-left:6%}
+.badge{position:absolute;right:-2%;top:-45px;width:clamp(120px,11vw,150px);height:auto;aspect-ratio:1;animation:spin 18s linear infinite;z-index:3}
+.badge text{font-family:var(--disp);font-weight:700;font-size:11px;letter-spacing:0;fill:var(--hot)}
+.sign{position:absolute;right:-6%;bottom:-3%;z-index:4;font-family:'Yellowtail',cursive;font-size:clamp(64px,8vw,116px);line-height:1;color:#fff;transform:rotate(-10deg);text-shadow:3px 3px 0 var(--hot),6px 6px 0 var(--yellow),0 10px 24px rgba(120,30,60,.25);-webkit-text-stroke:1px rgba(238,111,146,.35);pointer-events:none}
+@keyframes spin{to{transform:rotate(360deg)}}
+.hero .deco{position:absolute;border-radius:50%;background:rgba(255,255,255,.12)}
+
+/* ---------- RIBBON ---------- */
+.ribbon{position:relative;z-index:5;height:230px;margin:-120px 0 -70px;pointer-events:none}
+.ribbon.r2{margin-top:-30px}
+.ribbon svg{width:100%;height:100%;overflow:visible}
+.ribbon .band{fill:none;stroke:var(--yellow);stroke-width:46;stroke-linecap:round}
+.ribbon .edge{fill:none;stroke:#fff;stroke-width:54;stroke-linecap:round}
+.ribbon text{font-family:var(--disp);font-weight:700;font-size:20px;fill:var(--ink);text-transform:uppercase;letter-spacing:1px}
+
+/* ---------- SECTION HEADERS ---------- */
+section{position:relative}
+.sec{padding:110px 0 60px}
+.tag{display:inline-block;background:#FBD3DC;color:var(--hot);border-radius:999px;padding:4px 16px;font-size:13px;font-weight:600}
+.h2{font-family:var(--disp);font-weight:900;font-size:clamp(32px,5vw,62px);line-height:1.02;text-transform:uppercase;letter-spacing:-.02em;margin-top:14px}
+.center{text-align:center}
+.june-h{font-family:'Yellowtail',cursive;text-transform:none;color:var(--hot);font-weight:400;font-size:1.2em;letter-spacing:0;display:inline-block;transform:rotate(-5deg);padding:0 .08em;text-shadow:3px 3px 0 var(--yellow)}
+.sub{color:var(--ink2);max-width:620px;margin:14px auto 0}
+.round{position:absolute;width:96px;height:96px;border-radius:50%;display:grid;place-items:center;text-align:center;font-family:var(--hand);font-weight:700;font-size:20px;line-height:1;border:4px dashed rgba(255,255,255,.75);box-shadow:0 8px 18px rgba(58,42,47,.12)}
+
+/* ---------- ABOUT ---------- */
+.about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:center;margin-top:50px}
+.collage{position:relative;height:620px}
+.collage figure{position:absolute;background:#fff;padding:10px 10px 36px;border-radius:14px;box-shadow:0 14px 30px rgba(58,42,47,.14)}
+.collage figure img{border-radius:8px;object-fit:cover;width:100%;height:100%}
+.collage figcaption.pink{color:var(--hot);font-weight:700}
+.collage figcaption{position:absolute;bottom:6px;left:0;right:0;text-align:center;font-family:var(--hand);font-size:20px;color:var(--ink2)}
+.c1{width:54%;height:60%;left:0;top:2%;transform:rotate(-4deg);z-index:2}
+.c2{width:48%;height:38%;right:0;top:0;transform:rotate(5deg)}
+.c3{width:46%;height:36%;right:2%;top:41%;transform:rotate(-3deg);z-index:1}
+.c4{width:34%;height:38%;left:26%;top:63%;transform:rotate(4deg);z-index:3}
+.about-txt .big{font-size:21px;line-height:1.5;margin:18px 0 28px}
+.about-txt .big .gem{font-family:var(--disp);font-size:.95em;color:#fff;background:var(--purple);border-radius:999px;padding:2px 12px;white-space:nowrap}
+.about-txt .big em{font-style:normal;background:linear-gradient(transparent 58%,var(--yellow) 58%)}
+.traits{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.trait{border-radius:20px;padding:18px 18px 20px;color:#fff;position:relative}
+.trait h4{font-family:var(--disp);font-size:15px;line-height:1.2;margin-bottom:6px;text-transform:uppercase}
+.trait p{font-size:13.5px;line-height:1.5;opacity:.95}
+.trait:nth-child(1){background:var(--purple);transform:rotate(-1.5deg)}
+.trait:nth-child(2){background:var(--orange);transform:rotate(1.2deg)}
+.trait:nth-child(3){background:var(--hot);transform:rotate(1deg)}
+.trait:nth-child(4){background:var(--yellow);color:var(--ink);transform:rotate(-1.2deg)}
+
+/* journey */
+.journey{margin-top:100px;background:#fff;border-radius:36px;padding:48px 40px;position:relative}
+.journey h3{font-family:var(--disp);font-size:clamp(22px,3vw,34px);text-transform:uppercase;line-height:1.1}
+.journey h3 span{font-family:var(--hand);text-transform:none;color:var(--hot);font-size:1.15em}
+.jtrack{display:flex;gap:16px;overflow-x:auto;padding:28px 4px 10px;scroll-snap-type:x mandatory}
+.jtrack::-webkit-scrollbar{height:8px}.jtrack::-webkit-scrollbar-thumb{background:var(--cream2);border-radius:9px}
+.jcard{flex:0 0 250px;scroll-snap-align:start;border-radius:22px;padding:22px;background:var(--cream);position:relative}
+.jcard .n{font-family:var(--disp);font-size:12px;font-weight:700;color:#fff;background:var(--ink);border-radius:999px;padding:3px 10px;display:inline-block}
+.jcard h5{font-family:var(--disp);font-size:16px;margin:12px 0 4px;line-height:1.2}
+.jcard .roles{font-size:12.5px;color:var(--hot);font-weight:600;margin-bottom:8px}
+.jcard p{font-size:14px;color:var(--ink2)}
+.jyears{display:flex;justify-content:space-between;font-family:var(--disp);font-weight:700;font-size:13px;color:var(--ink2);margin-top:8px;border-top:2px dashed var(--cream2);padding-top:10px}
+.quote{margin:60px auto 0;max-width:880px;text-align:center;font-family:var(--disp);font-weight:700;font-size:clamp(20px,2.6vw,30px);line-height:1.3;text-transform:uppercase}
+.quote mark{background:none;color:var(--hot)}
+
+/* ---------- SKILLS ---------- */
+.skills{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:56px}
+.sk{border-radius:32px;padding:32px 28px 30px;position:relative;overflow:hidden;min-height:420px;display:flex;flex-direction:column}
+.sk .num{font-family:var(--disp);font-size:12px;font-weight:700;background:rgba(255,255,255,.35);border-radius:8px;padding:2px 8px;align-self:flex-start}
+.sk h3{font-family:var(--disp);font-size:26px;line-height:1.05;text-transform:uppercase;margin:16px 0 10px}
+.sk>p{font-size:14.5px;opacity:.92;margin-bottom:18px}
+.sk ul{list-style:none;display:flex;flex-direction:column;gap:8px;margin-top:auto}
+.sk li{background:rgba(255,255,255,.9);color:var(--ink);border-radius:14px;padding:9px 14px;font-size:14px;font-weight:600;display:flex;justify-content:space-between;gap:10px}
+.sk li small{font-weight:500;color:var(--ink2);font-size:12px;text-align:right}
+.sk.a{background:var(--hot);color:#fff;transform:rotate(-1.5deg)}
+.sk.b{background:var(--purple);color:#fff;transform:translateY(24px) rotate(1deg)}
+.sk.c{background:var(--yellow);color:var(--ink);transform:rotate(-.8deg)}
+.sk .bg{position:absolute;right:-30px;top:-30px;width:160px;height:160px;border-radius:50%;background:rgba(255,255,255,.12)}
+.toolrow{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:70px}
+.toolrow span{border:1.5px solid var(--ink);border-radius:999px;padding:7px 16px;font-size:14px;font-weight:600}
+
+
+/* skills v2 */
+.skp-wrap{display:flex;flex-direction:column;gap:30px;margin-top:56px}
+.skp{--c:var(--hot);--ct:#fff;display:grid;grid-template-columns:.78fr 1.7fr;gap:26px;border-radius:38px;padding:34px;background:var(--c);color:var(--ct);position:relative;overflow:hidden}
+.skp::after{content:"";position:absolute;width:260px;height:260px;border-radius:50%;background:rgba(255,255,255,.12);left:-80px;bottom:-110px;pointer-events:none}
+.skp.rev{grid-template-columns:1.7fr .78fr}.skp.rev .skh{order:2}
+.c-hot{--c:var(--hot);--ct:#fff;--tag:#FBD3DC;--tagt:#B83A5E}
+.c-purple{--c:var(--purple);--ct:#fff;--tag:#E6E0FA;--tagt:#5A47B0}
+.c-yellow{--c:var(--yellow);--ct:var(--ink);--tag:#FFF1B8;--tagt:#8A6200}
+.skp.rv.in:nth-child(1){transform:rotate(-.6deg)}.skp.rv.in:nth-child(2){transform:rotate(.5deg)}.skp.rv.in:nth-child(3){transform:rotate(-.4deg)}
+.skh{position:relative;z-index:1;display:flex;flex-direction:column}
+.big-n{font-family:var(--disp);font-weight:900;font-size:96px;line-height:.8;color:transparent;-webkit-text-stroke:2px var(--ct);opacity:.6}
+.skh h3{font-family:var(--disp);font-weight:900;font-size:clamp(26px,3vw,38px);line-height:1.02;text-transform:uppercase;margin:16px 0 14px}
+.subs{display:flex;flex-wrap:wrap;gap:6px}
+.subs span{border:1.5px solid currentColor;border-radius:999px;padding:4px 12px;font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:.05em}
+.note{font-family:var(--hand);font-size:26px;margin-top:auto;padding-top:22px;transform:rotate(-3deg);transform-origin:left}
+.skg{display:grid;grid-template-columns:1fr 1fr;gap:14px;position:relative;z-index:1}
+.ski{background:#fff;color:var(--ink);border-radius:24px;padding:20px 20px 22px;transition:transform .25s cubic-bezier(.3,1.4,.5,1),box-shadow .25s;box-shadow:0 6px 18px rgba(58,42,47,.08)}
+.ski:hover{transform:translateY(-4px) rotate(-.6deg);box-shadow:0 14px 28px rgba(58,42,47,.16)}
+.ski-top{display:flex;gap:12px;align-items:flex-start}
+.ski-n{flex:0 0 auto;width:36px;height:36px;border-radius:50%;background:var(--c);color:var(--ct);display:grid;place-items:center;font-family:var(--disp);font-weight:700;font-size:13px}
+.ski h4{font-family:var(--disp);font-size:15.5px;line-height:1.2;text-transform:uppercase;padding-top:2px}
+.ski-tags{display:flex;flex-wrap:wrap;gap:5px;margin:12px 0 10px}
+.ski-tags span{background:var(--tag);color:var(--tagt);border-radius:8px;padding:3px 9px;font-size:12px;font-weight:600}
+.ski p{font-size:14px;color:var(--ink2);line-height:1.55}
+@media (max-width:960px){.skp,.skp.rev{grid-template-columns:1fr}.skp.rev .skh{order:0}.big-n{font-size:70px}}
+@media (max-width:620px){.skg{grid-template-columns:1fr}.skp{padding:24px 18px}}
+
+
+.tools{margin-top:70px}
+.tools-h{font-family:var(--disp);font-weight:900;text-transform:uppercase;font-size:clamp(22px,2.6vw,30px);text-align:center;margin-bottom:24px}
+.tgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.tgroup{background:#fff;border-radius:26px;padding:18px;box-shadow:0 6px 18px rgba(58,42,47,.06);border:2px solid var(--cream2)}
+.tg-head{display:flex;align-items:center;gap:10px;font-family:var(--disp);font-weight:700;font-size:12.5px;text-transform:uppercase;letter-spacing:.04em;padding-bottom:14px;margin-bottom:12px;border-bottom:2px dashed var(--cream2)}
+.tg-ic{width:30px;height:30px;border-radius:10px;display:grid;place-items:center;background:var(--c);color:var(--ct);font-size:15px}
+.tgroup ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+.tgroup li{display:flex;align-items:center;gap:12px}
+.mono{flex:0 0 auto;width:44px;height:44px;border-radius:14px;display:grid;place-items:center;font-family:var(--disp);font-weight:700;font-size:14px;background:var(--tag);color:var(--tagt);transition:transform .25s cubic-bezier(.3,1.4,.5,1)}
+.mono img{width:100%;height:100%;object-fit:contain;border-radius:inherit}
+.mono:has(img){background:#fff;border:1.5px solid var(--cream2);padding:4px;overflow:hidden}
+.tgroup li:hover .mono{transform:rotate(-8deg) scale(1.08)}
+.tgroup li b{display:block;font-size:14.5px;line-height:1.25}
+.tgroup li small{display:block;font-size:12px;color:var(--ink2);line-height:1.35}
+.tg-hot{--c:var(--hot);--ct:#fff;--tag:#FBD3DC;--tagt:#B83A5E}
+.tg-purple{--c:var(--purple);--ct:#fff;--tag:#E6E0FA;--tagt:#5A47B0}
+.tg-orange{--c:var(--orange);--ct:#fff;--tag:#FFDCCD;--tagt:#B2431B}
+.tg-yellow{--c:var(--yellow);--ct:var(--ink);--tag:#FFF1B8;--tagt:#8A6200}
+@media (max-width:960px){.tgrid{grid-template-columns:1fr 1fr}}
+@media (max-width:620px){.tgrid{grid-template-columns:1fr}}
+
+/* ---------- WORK FOLDERS ---------- */
+.folders{display:grid;grid-template-columns:repeat(3,1fr);gap:56px 26px;margin-top:90px}
+.folder{position:relative;text-align:left;height:300px;border-radius:0 26px 26px 26px;padding:26px;display:flex;flex-direction:column;justify-content:flex-end;transition:transform .3s cubic-bezier(.3,1.4,.5,1);isolation:isolate}
+.folder::before{content:"";position:absolute;left:0;top:-30px;width:46%;height:34px;background:inherit;border-radius:18px 22px 0 0;filter:brightness(.92);z-index:-2}
+.folder::after{content:"";position:absolute;inset:0;background:inherit;border-radius:inherit;z-index:-1}
+.papers{position:absolute;left:0;right:0;top:0;height:100%;z-index:0}
+.papers img{position:absolute;width:42%;aspect-ratio:4/3;object-fit:cover;background:#fff;border-radius:10px;border:5px solid #fff;box-shadow:0 8px 18px rgba(0,0,0,.15);transition:transform .35s cubic-bezier(.3,1.4,.5,1)}
+.papers img:nth-child(1){left:12%;top:-22px;transform:rotate(-8deg)}
+.papers img:nth-child(2){left:36%;top:-34px;transform:rotate(3deg);z-index:2}
+.papers img:nth-child(3){right:8%;top:-18px;transform:rotate(10deg)}
+.folder .front{position:absolute;left:0;right:0;bottom:0;top:34%;background:inherit;border-radius:20px 26px 26px 26px;z-index:1;box-shadow:0 -6px 16px rgba(0,0,0,.08)}
+.folder:hover{transform:translateY(-6px) rotate(-1deg)}
+.folder:hover .papers img:nth-child(1){transform:translateY(-34px) rotate(-12deg)}
+.folder:hover .papers img:nth-child(2){transform:translateY(-44px) rotate(2deg)}
+.folder:hover .papers img:nth-child(3){transform:translateY(-30px) rotate(14deg)}
+.folder .inner{position:relative;z-index:2}
+.folder .ord{font-family:var(--disp);font-weight:700;font-size:12px;opacity:.75}
+.folder h3{font-family:var(--disp);font-size:24px;line-height:1.05;text-transform:uppercase;margin:6px 0 4px}
+.folder .role{font-size:14px;font-weight:600;opacity:.9}
+.folder .meta{display:flex;justify-content:space-between;align-items:center;margin-top:14px;font-size:13px;font-weight:600}
+.folder .open{background:#fff;color:var(--ink);border-radius:999px;padding:6px 14px}
+.f-gg{background:var(--yellow);color:var(--ink)}
+.f-gg .papers img{width:44%;object-fit:contain;padding:8px}
+.f-gg .papers img:nth-child(1){left:0;top:-14px;transform:rotate(-10deg)}
+.f-gg .papers img:nth-child(2){left:28%;top:-28px;transform:rotate(2deg)}
+.f-gg .papers img:nth-child(3){left:auto;right:0;top:-12px;transform:rotate(10deg)}
+.f-gg:hover .papers img:nth-child(1){transform:translateY(-20px) rotate(-14deg)}
+.f-gg:hover .papers img:nth-child(2){transform:translateY(-26px) rotate(0deg)}
+.f-gg:hover .papers img:nth-child(3){transform:translateY(-18px) rotate(14deg)}
+.f-hs{background:var(--orange);color:#fff}
+.f-hs .papers img{width:50%}
+.f-hs .papers img:nth-child(1){left:6%;top:-40px;transform:rotate(-8deg)}
+.f-hs .papers img:nth-child(2){left:auto;right:6%;top:-56px;transform:rotate(6deg);z-index:2;object-fit:contain;padding:6px}
+.f-hs:hover .papers img:nth-child(1){transform:translateY(-22px) rotate(-12deg)}
+.f-hs:hover .papers img:nth-child(2){transform:translateY(-28px) rotate(9deg)}
+.f-nx{background:var(--purple);color:#fff}
+.f-nx .papers img:nth-child(2){z-index:2}
+.f-ai{background:var(--hot);color:#fff}
+.f-ai .papers img{width:48%}
+.f-ai .papers img:nth-child(1){left:8%;top:-38px;transform:rotate(-7deg)}
+.f-ai .papers img:nth-child(2){left:auto;right:8%;top:-52px;transform:rotate(6deg);z-index:2}
+.f-ai:hover .papers img:nth-child(1){transform:translateY(-20px) rotate(-10deg)}
+.f-ai:hover .papers img:nth-child(2){transform:translateY(-26px) rotate(9deg)}
+.f-mac{background:var(--mint);color:var(--ink)}
+.f-mac .papers img{width:44%}
+.f-mac .papers img:nth-child(1){left:0;top:-14px}
+.f-mac .papers img:nth-child(2){left:28%;top:-28px;z-index:2}
+.f-mac .papers img:nth-child(3){left:auto;right:0;top:-12px}
+.f-oth{background:#fff;color:var(--ink);border:2px dashed var(--ink2)}
+.f-oth::before{border:2px dashed var(--ink2);border-bottom:0}
+.f-oth .front{background:#fff}
+.f-oth .papers img{width:48%}
+.f-oth .papers img:nth-child(1){left:8%;top:-38px;transform:rotate(-7deg)}
+.f-oth .papers img:nth-child(2){left:auto;right:8%;top:-52px;transform:rotate(6deg);z-index:2}
+.f-oth:hover .papers img:nth-child(1){transform:translateY(-20px) rotate(-10deg)}
+.f-oth:hover .papers img:nth-child(2){transform:translateY(-26px) rotate(9deg)}
+.ph-papers span{position:absolute;width:40%;aspect-ratio:4/3;border-radius:10px;border:5px solid #fff;box-shadow:0 8px 18px rgba(0,0,0,.15);display:grid;place-items:center;font-family:var(--disp);font-weight:900;font-size:18px;transition:transform .35s cubic-bezier(.3,1.4,.5,1)}
+
+/* ---------- MODAL ---------- */
+.modal{position:fixed;inset:0;z-index:100;display:none;background:rgba(58,42,47,.55);backdrop-filter:blur(6px);overflow-y:auto;padding:30px 16px}
+.modal.on{display:block;animation:fade .25s}
+@keyframes fade{from{opacity:0}}
+.sheet{max-width:1120px;margin:0 auto;background:var(--cream);border-radius:34px;overflow:hidden;animation:rise .4s cubic-bezier(.3,1.3,.5,1)}
+@keyframes rise{from{transform:translateY(40px) scale(.98)}}
+.mhead{padding:36px 40px 28px;position:relative}
+.mhead .x{position:absolute;right:22px;top:22px;width:46px;height:46px;border-radius:50%;background:#fff;color:var(--ink);font-size:22px;display:grid;place-items:center;box-shadow:0 4px 12px rgba(0,0,0,.1)}
+.mhead .ord{font-family:var(--disp);font-size:12px;font-weight:700;opacity:.8}
+.mhead h2{font-family:var(--disp);font-weight:900;font-size:clamp(28px,4.4vw,52px);line-height:1;text-transform:uppercase;margin:8px 0}
+.mhead .role{font-weight:600}
+.mhead .about{max-width:720px;margin-top:10px;opacity:.92;font-size:15px}
+.ptabs{display:flex;gap:8px;flex-wrap:wrap;margin-top:22px}
+.ptabs button{background:rgba(255,255,255,.35);border-radius:999px;padding:8px 16px;font-size:13.5px;font-weight:600}
+.ptabs button.on{background:#fff;color:var(--ink)}
+.mbody{padding:36px 40px 46px}
+.proj-top{display:grid;grid-template-columns:1.15fr .85fr;gap:28px}
+.ptype{display:inline-block;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;background:var(--ink);color:#fff;border-radius:999px;padding:4px 12px}
+.proj h3{font-family:var(--disp);font-size:clamp(22px,3vw,34px);line-height:1.1;text-transform:uppercase;margin:12px 0 8px}
+.proj .kicker{font-family:var(--hand);font-size:24px;color:var(--hot);line-height:1.1}
+.proj .desc{color:var(--ink2);margin-top:10px}
+.box{background:#fff;border-radius:22px;padding:22px 24px}
+.box h4{font-family:var(--disp);font-size:13px;text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px;color:var(--hot)}
+.challenge{margin-top:18px}
+.rolebox .r{font-family:var(--disp);font-weight:700;font-size:16px;text-transform:uppercase;margin-bottom:12px}
+.ctags{display:flex;flex-wrap:wrap;gap:6px}
+.ctags span{background:var(--cream2);border-radius:999px;padding:5px 12px;font-size:13px;font-weight:600}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin-top:26px}
+.step{border-radius:20px;padding:20px;background:#fff;border:2px solid var(--cream2)}
+.step .sn{font-family:var(--disp);font-weight:900;font-size:26px;color:var(--pink);line-height:1}
+.step h5{font-size:15.5px;margin:8px 0 4px}
+.step p{font-size:14px;color:var(--ink2)}
+.outcome{margin-top:26px;border-radius:26px;padding:28px;background:var(--ink);color:#fff;display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:start}
+.outcome h4{font-family:var(--disp);text-transform:uppercase;font-size:18px;color:var(--yellow);margin-bottom:10px}
+.outcome.solo>div:first-child{grid-column:1/-1}
+.outcome ul{padding-left:18px;display:flex;flex-direction:column;gap:6px;font-size:14.5px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px}
+.stat{background:rgba(255,255,255,.08);border-radius:18px;padding:16px}
+.stat b{display:block;font-family:var(--disp);font-size:28px;color:var(--yellow);line-height:1}
+.stat span{font-size:12.5px;opacity:.85}
+.lesson{grid-column:1/-1;font-family:var(--hand);font-size:24px;line-height:1.25;color:var(--pink);border-top:1px dashed rgba(255,255,255,.25);padding-top:16px}
+.gal-h{display:flex;justify-content:space-between;align-items:end;margin:34px 0 14px;gap:12px;flex-wrap:wrap}
+.gal-h h4{font-family:var(--disp);text-transform:uppercase;font-size:18px}
+.full{font-size:14px;font-weight:600;background:var(--yellow);border-radius:999px;padding:8px 16px;text-decoration:none}
+.gallery{columns:3 220px;column-gap:12px}
+.gallery button{display:block;width:100%;margin-bottom:12px;border-radius:16px;overflow:hidden;break-inside:avoid;background:#fff;box-shadow:0 4px 12px rgba(58,42,47,.08);transition:transform .2s}
+.gallery button:hover{transform:scale(1.02)}
+.gallery img{width:100%}
+.gallery .png{background:linear-gradient(135deg,#FBD3DC,#FFE9A8);padding:14px}
+.placeholder{border:2.5px dashed var(--ink2);border-radius:22px;padding:34px;text-align:center;color:var(--ink2);background:repeating-linear-gradient(-45deg,#fff 0 14px,var(--cream) 14px 28px)}
+.placeholder b{display:block;font-family:var(--disp);color:var(--ink);font-size:16px;margin-bottom:4px;text-transform:uppercase}
+.brands{display:flex;gap:12px;margin-top:18px;flex-wrap:wrap}
+.brand{flex:1 1 200px;border-radius:22px;padding:22px;font-family:var(--disp);font-weight:900;font-size:28px;text-transform:uppercase;line-height:1}
+.brand small{display:block;font-family:var(--body);font-weight:500;font-size:13px;text-transform:none;margin-top:8px;opacity:.85}
+
+.lb{position:fixed;inset:0;z-index:200;background:rgba(20,12,15,.92);display:none;align-items:center;justify-content:center;padding:30px}
+.lb.on{display:flex}
+.lb img{max-height:88vh;max-width:92vw;border-radius:12px}
+.lb button{position:absolute;color:#fff;font-size:30px;width:54px;height:54px;border-radius:50%;background:rgba(255,255,255,.12)}
+.lb .lx{top:18px;right:18px}.lb .lp{left:18px;top:50%}.lb .ln{right:18px;top:50%}
+
+/* ---------- CONTACT ---------- */
+.closing{margin:40px 12px 12px;background:var(--ink);color:var(--cream);border-radius:40px;padding:48px 0 60px;position:relative;overflow:hidden}
+.closing .h2{color:var(--cream)}
+.closing .h2 span{color:var(--yellow)}
+.becoming p+p{margin-top:12px}
+.contacts{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:56px}
+.ct{border-radius:24px;padding:22px;text-decoration:none;color:var(--ink);transition:transform .25s}
+.ct:hover{transform:translateY(-4px) rotate(-1deg)}
+.ct small{display:block;font-family:var(--disp);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;opacity:.7}
+.ct b{display:block;margin-top:8px;font-size:15.5px;word-break:break-all}
+.bye{position:relative;z-index:2;width:230px;margin:0 auto;background:#fff;padding:10px 10px 38px;border-radius:14px;transform:rotate(6deg);box-shadow:0 14px 30px rgba(0,0,0,.3)}
+.bye img{border-radius:8px;aspect-ratio:4/5;object-fit:cover;width:100%}
+.bye figcaption{position:absolute;bottom:6px;left:0;right:0;text-align:center;font-family:var(--hand);font-size:22px;color:var(--ink)}
+.closing .wrap{position:relative}
+.foot{text-align:center;margin-top:60px;font-size:13px;opacity:.6}
+
+
+.close-top{display:flex;justify-content:space-between;align-items:flex-start;gap:40px}
+.close-lead{margin-top:18px;font-size:17px;opacity:.85;max-width:560px}
+.values{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:44px}
+.val{border:1.5px solid rgba(255,245,236,.18);border-radius:24px;padding:22px;background:rgba(255,255,255,.04);transition:transform .25s,background .25s}
+.val:hover{transform:translateY(-4px);background:rgba(255,255,255,.08)}
+.val span{font-family:var(--disp);font-weight:900;font-size:28px;color:var(--yellow);line-height:1}
+.val h4{font-family:var(--disp);font-size:15px;text-transform:uppercase;margin:12px 0 8px;line-height:1.25}
+.val p{font-size:14px;opacity:.8;line-height:1.55}
+.val:nth-child(2) span{color:var(--pink)}.val:nth-child(3) span{color:var(--mint)}.val:nth-child(4) span{color:#B9AEF0}
+.next{margin-top:34px;font-size:17px;line-height:1.65;max-width:860px;opacity:.92}
+.next b{color:var(--yellow)}
+@media (max-width:960px){.values{grid-template-columns:1fr 1fr}.close-top{flex-direction:column}.bye{display:block!important}}
+@media (max-width:620px){.values{grid-template-columns:1fr}}
+
+
+.letter{position:relative;margin:56px auto 0;max-width:820px;background:#FFFBF3;color:#3A2A2F;border-radius:6px;padding:56px 64px 48px;transform:rotate(-1deg);box-shadow:0 24px 50px rgba(0,0,0,.35);
+  background-image:linear-gradient(transparent 0 37px,#F3D9DF 37px 38px);background-size:100% 38px;background-position:0 30px;font-family:'Caveat',cursive;font-size:25px;line-height:38px}
+.letter.rv.in{transform:rotate(-1deg)}
+.letter::before{content:"";position:absolute;left:44px;top:0;bottom:0;width:2px;background:rgba(238,111,146,.35)}
+.letter p{margin:0 0 38px}
+.letter .hi{font-weight:700;font-size:30px;color:var(--hot)}
+.letter u{text-decoration:none;background:linear-gradient(transparent 60%,rgba(255,216,77,.7) 60%);font-weight:700}
+.letter .sign-off{margin:0;text-align:right;padding-right:40px}
+.letter-sign{display:block;text-align:right;font-family:'Yellowtail',cursive;font-size:84px;line-height:1;color:var(--hot);transform:rotate(-6deg);margin-top:30px;padding-right:20px;text-shadow:2px 2px 0 var(--yellow)}
+.tape{position:absolute;width:120px;height:32px;background:rgba(255,216,77,.75);top:-14px}
+.tape.t1{left:40px;transform:rotate(-6deg)}.tape.t2{right:40px;transform:rotate(5deg);background:rgba(245,139,163,.75)}
+@media (max-width:620px){.letter{padding:44px 24px 36px 30px;font-size:21px;line-height:34px;background-size:100% 34px}.letter p{margin-bottom:34px}.letter::before{left:16px}.letter-sign{font-size:64px}}
+
+
+.bye-stage{position:relative;flex:0 0 380px;height:420px;display:flex;align-items:center;justify-content:center}
+.blobby{position:absolute;width:300px;height:300px;border-radius:46% 54% 60% 40%/50% 42% 58% 50%;background:radial-gradient(circle at 30% 30%,var(--hot),#B8456A);opacity:.55;filter:blur(2px);animation:morph 9s ease-in-out infinite}
+@keyframes morph{50%{border-radius:58% 42% 40% 60%/42% 58% 42% 58%;transform:rotate(12deg) scale(1.05)}}
+.ptape{position:absolute;top:-14px;left:50%;width:96px;height:28px;margin-left:-48px;background:rgba(255,216,77,.85);transform:rotate(-4deg);z-index:3}
+.spark{position:absolute;fill:var(--yellow);animation:twinkle 2.6s ease-in-out infinite}
+.spark.s1{width:34px;top:18px;left:28px}.spark.s2{width:20px;bottom:46px;right:22px;fill:var(--pink);animation-delay:.8s}.spark.s3{width:16px;top:70px;right:40px;fill:#fff;animation-delay:1.5s}
+@keyframes twinkle{50%{transform:scale(.6) rotate(20deg);opacity:.6}}
+.heart{position:absolute;fill:var(--pink);animation:floaty 4s ease-in-out infinite}
+.heart.h1{width:30px;bottom:30px;left:36px;transform:rotate(-14deg)}.heart.h2{width:20px;top:40px;right:84px;fill:var(--mint);animation-delay:1.2s}
+@keyframes floaty{50%{translate:0 -10px}}
+.bsticker{position:absolute;z-index:3;font-family:var(--disp);font-weight:700;font-size:11.5px;text-transform:uppercase;letter-spacing:.03em;border-radius:999px;padding:8px 14px;border:3px solid #fff;box-shadow:0 8px 18px rgba(0,0,0,.25);white-space:nowrap}
+.bsticker.b1{background:var(--yellow);color:var(--ink);left:-10px;top:268px;transform:rotate(-10deg)}
+.bsticker.b2{background:var(--purple);color:#fff;right:0;bottom:84px;transform:rotate(8deg)}
+.thatsme{position:absolute;right:24px;top:0;display:flex;flex-direction:column;align-items:flex-end;transform:rotate(6deg)}
+.thatsme svg{width:80px;order:2;margin-right:40px}
+.thatsme span{font-family:var(--hand);font-size:26px;color:var(--yellow);font-weight:700}
+.squig{position:absolute;width:110px;left:18px;bottom:8px;transform:rotate(-6deg)}
+@media (max-width:960px){.bye-stage{flex:none;width:min(100%,400px);align-self:center;margin-top:20px}}
+@media (max-width:620px){.bye-stage{height:400px}.bsticker.b1{left:-4px}.thatsme{right:0}.bsticker.b2{right:4px}}
+
+/* ---------- REVEAL ---------- */
+.rv{opacity:0;transform:translateY(30px);transition:opacity .7s,transform .7s cubic-bezier(.2,.8,.2,1)}
+.rv.in{opacity:1;transform:none}
+.sk.rv.in.b{transform:translateY(24px) rotate(1deg)}
+.sk.rv.in.a{transform:rotate(-1.5deg)} .sk.rv.in.c{transform:rotate(-.8deg)}
+
+@media (max-width:960px){
+  .nav-l nav{display:none}
+  .hero .wrap,.about-grid,.proj-top,.outcome,.becoming{grid-template-columns:1fr}
+  .portrait{justify-self:center;max-width:520px;width:100%;padding-top:30px;margin-top:20px}
+  .pic{width:72%;margin:0 auto}
+  .stk{position:absolute;inset:0;width:auto;display:block;pointer-events:none}
+  .sticker{position:absolute;font-size:13px;padding:9px 16px;border-width:3px}
+  .st1{left:0;top:44%;margin:0}
+  .st2{right:-1%;top:58%;margin:0}
+  .st3{left:4%;top:76%;margin:0}
+  .badge{right:-2%;top:0;width:118px}
+  .sign{right:-8%;bottom:-3%;font-size:96px}
+  .skills{grid-template-columns:1fr}.sk.b{transform:rotate(1deg)}.sk.rv.in.b{transform:rotate(1deg)}
+  .folders{grid-template-columns:1fr 1fr}
+  .contacts{grid-template-columns:1fr 1fr}
+  .collage{height:520px}
+}
+@media (max-width:620px){
+  .pic{width:82%}
+  .portrait{padding-bottom:30px}
+  .sticker{font-size:11.5px;padding:8px 13px}
+  .st1{left:-2%;top:42%}
+  .st2{right:-3%;top:57%}
+  .st3{left:0;top:74%}
+  .badge{width:96px;right:-3%;top:-2%}
+  .sign{font-size:76px;right:-6%}
+  .nav-r .num{display:none}
+  .folders{grid-template-columns:1fr}
+  .traits{grid-template-columns:1fr}
+  .mhead,.mbody{padding-left:22px;padding-right:22px}
+  .journey{padding:34px 20px}
+  .contacts{grid-template-columns:1fr}
+  .ribbon{height:150px;margin:-80px 0 -40px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-l pill">
+    <a class="logo" href="#top"><i>♥</i>vu linh chi</a>
+    <nav><a href="#about">About</a><a href="#skills">Skills</a><a href="#work">Work</a><a href="#contact">Contact</a></nav>
+  </div>
+  <div class="nav-r pill"><span class="num">linhchivu.forwork@gmail.com</span><a class="dot" href="#contact" aria-label="Contact">♥</a></div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="deco" style="width:420px;height:420px;left:-140px;bottom:-200px"></div>
+  <div class="deco" style="width:220px;height:220px;right:30%;top:-90px"></div>
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">Digital Marketing student @ Foreign Trade University</span>
+      <h1 class="pop"><span class="l1" data-split>Personal</span><span class="l2"><span data-split>Portfolio</span> <span class="hand">✿</span></span></h1>
+      <p class="lead">Hi, I'm <b>Vu Linh Chi</b> — or just <b>June</b>. I'm the girl who says <i>"let's try it"</i> to almost everything: new roles, new markets, new challenges. I never shy away from the hard parts, and wherever I go, I want to leave the people around me a little brighter than I found them.</p>
+      <div><p class="welcome">Welcome to my personal world ✦</p></div>
+      <div class="chips"><span class="chip">Branding &amp; Marketing</span><span class="chip">Event Organization</span></div>
+      <div class="btns"><a class="btn y" href="#work">Open my work folders →</a><a class="btn o" href="#contact">Let's talk</a></div>
+    </div>
+    <div class="portrait">
+      <svg class="badge" viewBox="0 0 140 140" aria-hidden="true">
+        <circle cx="70" cy="70" r="68" fill="#fff"/>
+        <defs><path id="c" d="M70,70 m-55,0 a55,55 0 1,1 110,0 a55,55 0 1,1 -110,0"/></defs>
+        <text><textPath href="#c" textLength="340" lengthAdjust="spacing">vu linh chi • brand &amp; marketing • event organization •</textPath></text>
+        <path d="M70 86 C48 70 55 54 66 58 C69 59 70 62 70 62 C70 62 71 59 74 58 C85 54 92 70 70 86Z" fill="#EE6F92"/>
+      </svg>
+      <div class="stk"><span class="sticker st1">Customer oriented</span><span class="sticker st2">Creative</span><span class="sticker st3">Data-driven ✦</span></div>
+      <div class="pic"><div class="blob"></div><img class="me" src="a/me-cut4.png" alt="Portrait of Vu Linh Chi"><span class="sign" aria-label="June">June</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="ribbon" aria-hidden="true">
+  <svg viewBox="0 0 1400 260" preserveAspectRatio="none">
+    <defs><path id="rp1" d="M-120,190 C120,60 330,40 470,140 C570,210 760,250 770,150 C780,40 590,40 600,150 C610,250 860,250 1010,130 C1130,35 1300,70 1540,40"/></defs>
+    <use href="#rp1" class="edge"/><use href="#rp1" class="band"/>
+    <text dy="7"><textPath href="#rp1" class="mq" startOffset="0">Vu Linh Chi • Brand &amp; Marketing • Research first • Strategy second • Impact always • Vu Linh Chi • Brand &amp; Marketing • Research first • Strategy second • Impact always • Vu Linh Chi • Brand &amp; Marketing •</textPath></text>
+  </svg>
+</div>
+
+<!-- ABOUT -->
+<section class="sec" id="about">
+  <div class="wrap">
+    <div class="center rv"><span class="tag">about me</span><h2 class="h2"><span class="june-h">Dreamer</span> by heart,<br><span class="june-h">hustler</span> by nature</h2></div>
+    <div class="about-grid">
+      <div class="collage rv">
+        <figure class="c1"><img src="a/p-glasses.jpg" alt="Vu Linh Chi smiling"><figcaption class="pink">hi, it's June ✿</figcaption></figure>
+        <figure class="c2"><img src="a/p-xmas.jpg" alt="Chi at a café"><figcaption>the dreamy side</figcaption></figure>
+        <figure class="c3"><img src="a/p-dance.jpg" alt="Chi laughing"><figcaption>the joyful side</figcaption></figure>
+        <figure class="c4"><img src="a/p-door.jpg" alt="Chi in a quiet moment"><figcaption>quiet moments</figcaption></figure>
+      </div>
+      <div class="about-txt rv">
+        <p class="big">A true <b class="gem">Gemini ♊︎</b> — two souls living in one body. One is <em>dreamy</em>: she lives with music, treasures peace and tranquility, and finds happiness in the simplest moments. The other <em>loves the hustle</em>: pragmatic, all-in at work, and at her best when the pressure is on.</p>
+        <div class="traits">
+          <div class="trait"><h4>Inner strength</h4><p>I trust in perseverance, discipline and relentless effort to achieve the seemingly impossible.</p></div>
+          <div class="trait"><h4>People first</h4><p>I'm attuned to people's emotions and thoughts, and I care about the impact of my actions on those around me.</p></div>
+          <div class="trait"><h4>Ambitious &amp; grounded</h4><p>I aim high, but keep both feet on the ground — and on the data.</p></div>
+          <div class="trait"><h4>Shared growth</h4><p>What motivates me daily: finding fulfilment in my work and helping teammates gain valuable experiences.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="journey rv">
+      <span class="round" style="background:var(--yellow);right:-14px;top:-40px;transform:rotate(12deg)">since<br>2023</span>
+      <h3>My journey · <span>every role taught me something different</span></h3>
+      <div class="jtrack" id="jtrack"></div>
+      <div class="jyears"><span>2023</span><span>scroll →</span><span>2026</span></div>
+    </div>
+    <p class="quote rv">Life is full of <mark>unknowns</mark> — so I say yes to new roles, chase new challenges and try to spread <mark>positive energy</mark> wherever I go. Even the things I've <mark>never done before</mark>.</p>
+  </div>
+</section>
+
+<div class="ribbon r2" aria-hidden="true">
+  <svg viewBox="0 0 1400 260" preserveAspectRatio="none">
+    <defs><path id="rp2" d="M-140,50 C120,80 290,35 410,130 C560,250 810,250 820,150 C830,40 640,40 650,150 C660,250 860,210 960,150 C1100,60 1300,40 1540,170"/></defs>
+    <use href="#rp2" class="edge"/><use href="#rp2" class="band"/>
+    <text dy="7"><textPath href="#rp2" class="mq" startOffset="0">Market research • Brand strategy • Integrated campaigns • E-commerce • Event organizing • Market research • Brand strategy • Integrated campaigns • E-commerce • Event organizing • Market research • Brand strategy •</textPath></text>
+  </svg>
+</div>
+
+<!-- SKILLS -->
+<section class="sec" id="skills">
+  <div class="wrap">
+    <span class="round" style="background:var(--orange);color:#fff;left:3%;top:120px;transform:rotate(-12deg)">fresh<br>insights</span>
+    <span class="round" style="background:var(--purple);color:#fff;right:4%;top:90px;transform:rotate(10deg)">data<br>driven</span>
+    <div class="center rv"><span class="tag">what I bring</span><h2 class="h2">My skill<br>toolkit</h2><p class="sub">Three toolkits I've built through brand work, campaigns, large-scale events and leading teams.</p></div>
+    <div class="skp-wrap">
+<article class="skp rv c-hot">
+  <div class="skh"><span class="big-n">01</span><h3>Branding &amp; Marketing</h3>
+    <div class="subs"><span>Brand Strategy</span><span>Marketing Execution</span><span>Performance</span></div>
+    <p class="note">from insight to impact ✦</p></div>
+  <div class="skg"><div class="ski"><div class="ski-top"><span class="ski-n">01</span><h4>Brand Strategy &amp; Positioning</h4></div><div class="ski-tags"><span>Market Research</span><span>Brand Positioning</span><span>Brand Identity</span><span>Value Proposition Development</span></div><p>Defining brand positioning, crafting brand messaging and shaping a consistent communication direction.</p></div><div class="ski"><div class="ski-top"><span class="ski-n">02</span><h4>Integrated Marketing Campaign Planning</h4></div><div class="ski-tags"><span>Campaign Planning</span><span>IMC Strategy</span><span>Marketing Activation</span></div><p>Planning integrated campaigns: developing the campaign concept, choosing communication channels and rolling out activation activities.</p></div><div class="ski"><div class="ski-top"><span class="ski-n">03</span><h4>Content &amp; Social Media Strategy</h4></div><div class="ski-tags"><span>Content Strategy</span><span>Social Media Management</span><span>KOL/KOC Marketing</span></div><p>Building content pillars, managing social platforms, creating content around audience insights and running influencer marketing.</p></div><div class="ski"><div class="ski-top"><span class="ski-n">04</span><h4>Marketing Analytics &amp; Performance Optimization</h4></div><div class="ski-tags"><span>KPI Tracking</span><span>Data Analysis</span><span>Campaign Evaluation</span></div><p>Tracking marketing KPIs, analysing campaign effectiveness, evaluating results and recommending data-driven optimisations.</p></div></div>
+</article>
+<article class="skp rv c-purple rev">
+  <div class="skh"><span class="big-n">02</span><h3>Event Organization</h3>
+    <div class="subs"><span>Event Planning</span><span>Project Execution</span><span>Operations</span></div>
+    <p class="note">no detail too small ✦</p></div>
+  <div class="skg"><div class="ski"><div class="ski-top"><span class="ski-n">01</span><h4>Event Planning &amp; Project Management</h4></div><div class="ski-tags"><span>Event Concept Development</span><span>Project Planning</span><span>Timeline Management</span></div><p>Developing event concepts, building the master plan, allocating tasks and managing the delivery timeline.</p></div><div class="ski"><div class="ski-top"><span class="ski-n">02</span><h4>Event Operations &amp; On-site Execution</h4></div><div class="ski-tags"><span>Event Logistics</span><span>On-site Coordination</span><span>Operational Management</span></div><p>Coordinating event operations, managing logistics and people, and handling whatever comes up on the day.</p></div><div class="ski"><div class="ski-top"><span class="ski-n">03</span><h4>Stakeholder &amp; Vendor Coordination</h4></div><div class="ski-tags"><span>Partner Relations</span><span>Vendor Management</span><span>Cross-team Coordination</span></div><p>Working with partners, suppliers, sponsors, internal teams and other stakeholders so every part of the event runs in sync.</p></div><div class="ski"><div class="ski-top"><span class="ski-n">04</span><h4>Budgeting &amp; Resource Management</h4></div><div class="ski-tags"><span>Budget Allocation</span><span>Resource Planning</span><span>Cost Control</span></div><p>Planning budgets, allocating resources and keeping costs under control throughout the event.</p></div></div>
+</article>
+<article class="skp rv c-yellow">
+  <div class="skh"><span class="big-n">03</span><h3>Leadership</h3>
+    <div class="subs"><span>People Management</span><span>Collaboration</span><span>Strategic Thinking</span></div>
+    <p class="note">growing together ✦</p></div>
+  <div class="skg"><div class="ski"><div class="ski-top"><span class="ski-n">01</span><h4>Team Leadership &amp; Development</h4></div><div class="ski-tags"><span>Team Management</span><span>Delegation</span><span>Coaching &amp; Mentoring</span></div><p>Leading teams, delegating work, growing members' capabilities and building an environment where people do their best work.</p></div><div class="ski"><div class="ski-top"><span class="ski-n">02</span><h4>Strategic Thinking &amp; Problem-solving</h4></div><div class="ski-tags"><span>Critical Thinking</span><span>Decision-making</span><span>Problem Resolution</span></div><p>Analysing problems, setting priorities, weighing options and making decisions aligned with shared goals.</p></div><div class="ski"><div class="ski-top"><span class="ski-n">03</span><h4>Cross-functional Collaboration</h4></div><div class="ski-tags"><span>Interpersonal Communication</span><span>Stakeholder Engagement</span><span>Team Collaboration</span></div><p>Connecting individuals, departments and stakeholders to keep work moving and make it more effective.</p></div><div class="ski"><div class="ski-top"><span class="ski-n">04</span><h4>Performance &amp; Project Management</h4></div><div class="ski-tags"><span>Goal Setting</span><span>Performance Monitoring</span><span>Execution Management</span></div><p>Setting goals, monitoring performance, managing progress and making sure the team delivers to expectations.</p></div></div>
+</article>
+</div>
+    <div class="tools rv"><h3 class="tools-h">My toolbox</h3><div class="tgrid">
+<div class="tgroup tg-hot"><div class="tg-head"><span class="tg-ic">✎</span>Design &amp; Creative</div><ul><li><span class="mono"><img src="a/t/canva.png" alt=""></span><span><b>Canva</b></span></li><li><span class="mono"><img src="a/t/capcut.png" alt=""></span><span><b>CapCut</b></span></li></ul></div>
+<div class="tgroup tg-purple"><div class="tg-head"><span class="tg-ic">▦</span>Workspace &amp; Productivity</div><ul><li><span class="mono"><img src="a/t/office.png" alt=""></span><span><b>Microsoft Office</b><small>PowerPoint · Word · Excel</small></span></li><li><span class="mono"><img src="a/t/gworkspace.png" alt=""></span><span><b>Google Workspace</b><small>Sheets · Docs · Slides · Drive · Forms</small></span></li><li><span class="mono"><img src="a/t/notion.png" alt=""></span><span><b>Notion</b></span></li></ul></div>
+<div class="tgroup tg-orange"><div class="tg-head"><span class="tg-ic">◔</span>Research &amp; Analytics</div><ul><li><span class="mono"><img src="a/t/excel.png" alt=""></span><span><b>Excel</b></span></li><li><span class="mono"><img src="a/t/ga.png" alt=""></span><span><b>Google Analytics</b></span></li><li><span class="mono"><img src="a/t/meta.png" alt=""></span><span><b>Meta Business Suite</b></span></li></ul></div>
+<div class="tgroup tg-yellow"><div class="tg-head"><span class="tg-ic">✦</span>AI Tools</div><ul><li><span class="mono"><img src="a/t/chatgpt.png" alt=""></span><span><b>ChatGPT</b></span></li><li><span class="mono"><img src="a/t/claude.png" alt=""></span><span><b>Claude</b></span></li><li><span class="mono"><img src="a/t/perplexity.png" alt=""></span><span><b>Perplexity</b></span></li><li><span class="mono"><img src="a/t/notebooklm.png" alt=""></span><span><b>NotebookLM</b></span></li></ul></div>
+</div></div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section class="sec" id="work">
+  <div class="wrap">
+    <div class="center rv"><span class="tag">experience</span><h2 class="h2">Work folders</h2><p class="sub">Each folder holds the projects I did at that place. Click one to open it ✦</p></div>
+    <div class="folders" id="folders"></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="closing" id="contact">
+  <div class="wrap">
+    
+    <div class="close-top">
+      <div class="close-l">
+        <span class="tag" style="background:var(--hot);color:#fff">let's connect ✦</span>
+        <h2 class="h2">Let's build,<br>share <span>&amp; grow together.</span></h2>
+      </div>
+      <div class="bye-stage">
+        <span class="blobby"></span>
+        <svg class="spark s1" viewBox="0 0 24 24"><path d="M12 0C13 8 16 11 24 12C16 13 13 16 12 24C11 16 8 13 0 12C8 11 11 8 12 0Z"/></svg>
+        <svg class="spark s2" viewBox="0 0 24 24"><path d="M12 0C13 8 16 11 24 12C16 13 13 16 12 24C11 16 8 13 0 12C8 11 11 8 12 0Z"/></svg>
+        <svg class="spark s3" viewBox="0 0 24 24"><path d="M12 0C13 8 16 11 24 12C16 13 13 16 12 24C11 16 8 13 0 12C8 11 11 8 12 0Z"/></svg>
+        <svg class="heart h1" viewBox="0 0 24 24"><path d="M12 21C5 15 2 11.5 2 8a5 5 0 0 1 10-1 5 5 0 0 1 10 1c0 3.5-3 7-10 13Z"/></svg>
+        <svg class="heart h2" viewBox="0 0 24 24"><path d="M12 21C5 15 2 11.5 2 8a5 5 0 0 1 10-1 5 5 0 0 1 10 1c0 3.5-3 7-10 13Z"/></svg>
+        <figure class="bye"><span class="ptape"></span><img src="a/p-pout.jpg" alt="Chi being playful"><figcaption>see you soon!</figcaption></figure>
+        <span class="bsticker b1">open to new roles</span>
+        <span class="bsticker b2">say hi ☺</span>
+        <div class="thatsme"><svg viewBox="0 0 90 60" fill="none"><path d="M84 8C60 4 30 10 22 40" stroke="#FFD84D" stroke-width="3" stroke-linecap="round"/><path d="M12 32L22 44L30 31" stroke="#FFD84D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg><span>that's me!</span></div>
+        <svg class="squig" viewBox="0 0 120 20" fill="none"><path d="M2 10 Q 12 0 22 10 T 42 10 T 62 10 T 82 10 T 102 10 T 118 10" stroke="#8FD3BE" stroke-width="4" stroke-linecap="round"/></svg>
+      </div>
+    </div>
+    <div class="letter rv">
+      <span class="tape t1"></span><span class="tape t2"></span>
+      <p class="hi">Dear you,</p>
+      <p>Thank you for stopping by my little world. Before you go, I'd love to share a few things that guide me every day.</p>
+      <p>I always put the customer first — every idea I have starts with them, and I try my best to give them as much value as I possibly can. Things change fast, so I've learned to adapt quickly, and I never stop striving to do my work a little better than yesterday.</p>
+      <p>I get excited about new trends and fresh ideas, but I always look for the data behind them before I believe in them. And whatever I do, I like to work with clear goals and a proper system — that's how good ideas actually come to life.</p>
+      <p>I'd truly love to connect with you — to learn from each other, to work together, and to share what we each bring to the table. Ahead of me, I'll keep growing in <u>Branding &amp; Marketing</u> and <u>Event Organization</u>, and I'm still just as curious to try new things and step into roles I've never taken on before.</p>
+      <p>Hope our paths cross soon!</p>
+      <p class="sign-off">With love,</p>
+      <span class="letter-sign">June</span>
+    </div>
+    <div class="contacts">
+      <a class="ct" style="background:var(--yellow)" href="mailto:linhchivu.forwork@gmail.com"><small>Email</small><b>linhchivu.forwork@gmail.com</b></a>
+      <a class="ct" style="background:var(--pink)" href="tel:+84833398864"><small>Phone</small><b>(+84) 833 398 864</b></a>
+      <a class="ct" style="background:var(--purple);color:#fff" href="https://www.linkedin.com/in/linhchi-vu20" target="_blank" rel="noopener"><small>LinkedIn</small><b>linkedin.com/in/linhchi-vu20</b></a>
+      <div class="ct" style="background:var(--mint)"><small>Facebook</small><b>Chi Linh Vũ</b></div>
+    </div>
+    <p class="foot">© 2026 Vu Linh Chi · Thank you for taking the time to explore my journey.</p>
+  </div>
+</section>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true"><div class="sheet" id="sheet"></div></div>
+<div class="lb" id="lb"><img id="lbimg" alt=""><button class="lx" aria-label="Close">×</button><button class="lp" aria-label="Previous">‹</button><button class="ln" aria-label="Next">›</button></div>
+
+<script>
+const JOURNEY=[
+ ["Event Organizing","","Learning to run things on the ground: plans, timelines, people."],
+ ["Content Marketing","","I learned how to capture attention and communicate ideas that resonate with audiences."],
+ ["Campaign Execution","Marketing Executive","Great content alone isn't enough — execution requires structure, collaboration and measurement."],
+ ["Project Development","Project Development Executive → Team Leader","I began designing customer journeys, managing stakeholders and thinking beyond marketing outputs."],
+ ["Marketing Strategy","Marketing Team Leader","I learned to start with research, translate insights into strategy and measure success through business impact."],
+ ["Branding & E-commerce","Branding & Marketing Intern","I saw how branding, operations and performance marketing connect to drive real business growth."]
+];
+document.getElementById('jtrack').innerHTML=JOURNEY.map((j,i)=>`<div class="jcard"><span class="n">0${i+1}</span><h5>${j[0]}</h5>${j[1]?`<div class="roles">${j[1]}</div>`:''}<p>${j[2]}</p></div>`).join('');
+
+const A=n=>'a/'+n+(/^(me-cut|me-cut2|me-cut3|me-cut4|blm-logo|hx-phone|hx-web)$/.test(n)?'.png':'.jpg');
+
+const ORGS=[
+{id:'golden-gate',cls:'f-gg',name:'Golden Gate Group',role:'Marketing · Chixmax & Pizza360',
+ about:'At Golden Gate — a Vietnamese F&B group — I support brand marketing for two of its brands — Chixmax and Pizza360.',
+ papers:['gg-chixmax','gg-logo','gg-pizza'],
+ projects:[{tab:'Brand marketing',type:'Brand & Content Marketing',title:'Brand marketing for Chixmax & Pizza360',kicker:'content · creators · campaigns · touchpoints',
+  desc:'Day-to-day brand marketing across social channels, creator collaborations, campaign materials and in-store touchpoints for two F&B brands.',
+  role:'Marketing',contrib:['Social content planning','KOL/KOC coordination','Campaign materials','POSM & brand touchpoints'],
+  steps:[
+   ['Brand content on social','Plan and publish brand content on Facebook Fanpages, Threads and other social channels for Chixmax and Pizza360.'],
+   ['KOL / KOC collaborations','Coordinate creator collaborations end-to-end — booking, briefing, deliverable tracking and publishing — to keep creator content on brief and on schedule.'],
+   ['Campaign materials','Work with internal teams and external suppliers to produce marketing materials for campaigns.'],
+   ['Brand touchpoints','Keep in-store POSM and other brand touchpoints visually consistent with each brand\'s identity.']],
+  stats:[['150%','increase in engagement across supported activities'],['120%','of monthly revenue KPI reached by supported campaigns']],
+  outcome:['Contributed to a 150% increase in engagement across supported activities.','Produced materials for campaigns that reached 120% of the monthly revenue KPI.','Kept creator content and in-store touchpoints consistent with each brand.'],
+  brands:true,imgs:[]}]},
+
+{id:'hanhsilk',cls:'f-hs',name:'Hanhsilk',role:'E-commerce',
+ about:'Hanhsilk is a Vietnamese silk brand preserving the traditional craftsmanship of Nam Cao Silk Village.',
+ papers:['hs-box','hs-logo2'],
+ projects:[{tab:'Social commerce system',type:'E-commerce Operation',title:'Building a social commerce system for a traditional silk brand',kicker:'TikTok Shop · Shopee · livestream',
+  desc:'Strengthening Hanhsilk\'s digital sales ecosystem by integrating content, livestream and e-commerce operations across TikTok Shop and Shopee.',
+  challenge:'Hanhsilk already operated multiple digital channels, but they worked independently with no unified sales journey. TikTok Shop had not been systematically developed, and livestream and social commerce were underused despite their potential. The goal: a scalable social commerce system connecting content, livestream and e-commerce into one seamless customer journey.',
+  role:'Marketing Intern',contrib:['Audited sales channels','Planned TikTok Shop operations','Standardised product listings','Developed livestream operations','Optimised product strategy'],
+  steps:[
+   ['Channel audit & strategy','Evaluated Facebook (17K followers), Shopee (~400 followers, 4.9★) and TikTok (1K followers). Chose TikTok Shop as the core channel because it combines content, livestream and purchase in one place.'],
+   ['Store setup & operations','Organised product categories, optimised titles and descriptions, and aligned the storefront with Hanhsilk\'s brand identity.'],
+   ['Livestream & commerce workflow','Designed a standard livestream workflow: product selection, scripting, offers, audience interaction and post-session reviews.'],
+   ['Optimisation & tracking','Built a KPI dashboard and used performance data to refine assortments, introduce bundles and improve livestream flow.']],
+  stats:[['10','TikTok videos · ~6,000 views'],['3','livestreams · ~5,000 views'],['~30','orders from livestreams']],
+  outcome:['Established a complete operational foundation for TikTok Shop, ready for content, livestream and sales.','Integrated shopping features into published content.','Launched the first livestream sessions and turned views into orders.'],
+  link:'https://drive.google.com/file/d/1aqQJDQFLer-oSkFZqUXxFe2SPyihGpEz/view?usp=drive_link',
+  imgs:['hs-box','hs-1','hs-2','hs-3','hs-4','hs-5','hs-6','hs-7','hs-8','hs-9']}]},
+
+{id:'novax',cls:'f-nx',name:'Heritex',sub:'Dự án Ký ức Lịch sử',role:'Marketing',
+ about:'Heritex — "Lưu giữ Lịch sử, Ký ức & Di sản" — is a platform that uses Blockchain to record and preserve the digital footprints of individuals, communities and cultural heritage for future generations.',
+ papers:['hx-s1','hx-logo2','hx-s4'],
+ projects:[
+ {tab:'Brand strategy',type:'Brand Strategy',title:'Heritex — building a brand for digital heritage',kicker:'making Blockchain human',
+  desc:'Defining the brand foundation, positioning and communication strategy for a Web3 heritage platform.',
+  challenge:'How can we transform a complex Blockchain solution into a brand that people can easily understand, trust and connect with?',
+  role:'Marketing Intern',contrib:['Brand audit','Market & competitor analysis','Customer insight','Brand positioning','Brand identity','Communication strategy'],
+  steps:[
+   ['Brand discovery','Brand audit, market research, competitor analysis and customer insight — understanding the market, product and audience before defining the brand.'],
+   ['Brand foundation','Purpose: preserve meaningful human and cultural values through digital technology. Value proposition: a trusted platform that turns intangible memories into permanent digital assets.'],
+   ['Business Model Canvas','Mapped partners (CSR businesses, veterans & historical societies, museums, media), a 3-tier token storage model, channels and revenue streams.'],
+   ['Positioning & comms plan','Positioned Heritex as a trusted digital heritage platform. Facebook as the primary hub, TikTok for emotional reach, YouTube Shorts for credibility & archive.'],
+   ['Brand visibility','Website, social posts and partnership events with veterans and historical organisations.']],
+  outcome:['Established a clear, differentiated positioning for a Web3 heritage platform.','Built a strategic brand foundation to guide future marketing.','Developed a customer-centred messaging framework that made complex technology approachable.','Designed a multi-channel visibility strategy to strengthen awareness and trust.'],
+  lesson:'Preserve meaningful values to connect generations.',
+  link:'https://drive.google.com/file/d/1hUv4cs9MudJdee612pSVEvt-3FTsNHBQ/view?usp=drive_link',link2:['Visit website','https://history-staging.pafoundation.org.vn/'],
+  imgs:['hx-web','hx-phone','hx-s1','hx-s2','hx-s3','hx-s4','hx-s5','hx-s6','hx-s7','hx-bmc','hx-1','hx-2','hx-3','hx-4','hx-5','hx-6']},
+ {tab:'"Những Di Sản Vô Giá"',type:'Engagement Campaign',title:'"Những Di Sản Vô Giá" — priceless heritage',kicker:'everyday memories are heritage too',
+  desc:'A social campaign encouraging people to share personal memories and untold historical stories — highlighting the emotional value of everyday memories in preserving Vietnam\'s cultural heritage.',
+  challenge:'Many people see heritage as something distant — museums, historical sites, official records. The campaign had to show that personal stories and family memories are also heritage worth preserving, building emotional engagement while introducing Heritex\'s mission through community participation.',
+  role:'Marketing Intern',contrib:['Campaign concept','Storytelling framework','UGC strategy','Content execution','Engagement measurement'],
+  steps:[
+   ['Campaign insight','Instead of asking people to learn about heritage, we invited them to share the stories they already carry.'],
+   ['Storytelling framework','Emotional storytelling around family memories, wartime experiences and cultural traditions worth preserving.'],
+   ['UGC activation','Invited participants to contribute their own stories, photos and memories — community content became the core communication asset.'],
+   ['Threads seeding','AWO and challenge seeding on Threads; the top post reached 3.6K views and every seeding post passed 500 views.']],
+  stats:[['~196K','reach on FB & Threads'],['>1K','engagements'],['3.6K','views on top post'],['18','posts (10 fanpage + 8 seeding)']],
+  outcome:['Made the campaign more authentic through community-generated content.','Strengthened the emotional connection between the audience and the brand.','Delivered ~196K reach on a 2.2M VND ads budget across 52 campaigns.'],
+  link:'https://drive.google.com/file/d/10SdgWWmv0NF2XjOfpUHK088T_pT2zw-9/view?usp=drive_link',
+  imgs:['hx-c1','hx-c2','hx-c3','hx-t1','hx-t2','hx-t3','hx-t4']}]},
+
+{id:'aiesec',cls:'f-ai',name:'AIESEC in Vietnam',role:'Marketing & Project Development · Dash For Impact (AIESEC in FHN)',
+ about:'Dash For Impact is an educational ecosystem of business projects by AIESEC in Vietnam (FHN Branch), empowering high school students to build self-leadership, business knowledge and career orientation through experiential learning.',
+ papers:['dfi-logo2','aie-logo'],
+ projects:[
+ {tab:'Market research',type:'Market Research',title:'Market research for Dash For Impact',kicker:'how do students want to learn?',
+  desc:'Mixed-method research to understand changing student needs and evolve Dash For Impact\'s offerings and positioning.',
+  challenge:'The high school extracurricular market was getting more competitive while students\' learning interests kept evolving. Dash For Impact needed to understand these needs to redesign its programmes, strengthen its ecosystem positioning and build a marketing strategy that resonated.',
+  contrib:['Quantitative & qualitative research','Learning & media behaviour analysis','Brand perception & competition','Insights → recommendations'],
+  steps:[
+   ['Brand audit','Reviewed past projects and customer feedback.'],
+   ['Research planning','Two key questions: how do students prefer to learn business? How should Dash evolve its positioning? Designed a mixed-method approach.'],
+   ['Survey design','Built quantitative and qualitative questionnaires.'],
+   ['Data collection & analysis','Surveys and interviews with target audiences; analysed in Excel to find patterns and insights.'],
+   ['Report & recommendation','Compiled findings into a research report with strategic recommendations.']],
+  stats:[['120%','communication KPI reached by the strategy built on this research']],
+  outcome:['Identified key customer segments, learning preferences and media behaviours.','Informed the redesign of the programme structure and ecosystem positioning.','Provided the foundation for the marketing strategy.'],
+  link:'https://drive.google.com/file/d/14yLN4TUf1vsRLqob--etYMmpi-_CdzLq/view?usp=drive_link',
+  imgs:['dfi-r1','dfi-r2','dfi-r3','dfi-r4','dfi-r5']},
+ {tab:'Brand guideline',type:'Brand Strategy',title:'Evolving a brand system for market expansion',kicker:'Hà Nội → Hồ Chí Minh City',
+  desc:'After repositioning from a single competition to an educational ecosystem, Dash For Impact planned to expand from the North to Ho Chi Minh City. I updated the Brand Guideline to make the brand clearer and more scalable.',
+  challenge:'The guideline worked in the North, but a new market needed a clearer system so new audiences could quickly understand what Dash For Impact is, why it exists, and how it differs from other extracurricular programmes.',
+  contrib:['Audited the Brand Guideline','Refined positioning & purpose','Updated communication principles','Standardised messaging','Creative direction for the South'],
+  steps:[
+   ['Brand audit','Reviewed the guideline and past campaigns: positioning, clarity, messaging consistency, visual application.'],
+   ['Strengthening positioning','Refined purpose, positioning, core message, target audience and communication principles — without changing the brand.'],
+   ['Updating the guideline','Clearer standards for tone of voice, visual identity, art direction, graphic elements and social media.'],
+   ['Campaign direction','Built the creative direction for the Southern recruitment campaign on top of the updated guideline.']],
+  outcome:['Strengthened brand positioning for market expansion.','Created a clearer guideline that aligned communication across teams.','Set a consistent creative direction for the Southern campaign.'],
+  lesson:'Expanding into a new market doesn\'t always require a new brand — it requires a clearer one.',
+  link:'https://drive.google.com/file/d/1kiviZGdNHQkUGHndfMsd1aDymU4qXH2K/view?usp=sharing',
+  imgs:['aie-4','aie-6','dfi-bg']},
+ {tab:'Business Bootcamp 2025',type:'Integrated Marketing Campaign',title:'Dash For Impact Business Bootcamp 2025',kicker:'standing out in a crowded education market',
+  desc:'A business education programme giving high school students practical knowledge through workshops, mentorship and experiential learning.',
+  challenge:'With bootcamps and extracurriculars multiplying, competition for students\' attention was intense. The strategy had to differentiate Dash For Impact, attract qualified participants and maximise recruitment.',
+  role:'Marketing Team Leader',contrib:['Marketing strategy','Content strategy','PR & partnership tactics','Campaign execution','Performance monitoring'],
+  steps:[
+   ['Market & audience analysis','Analysed competitors, customer behaviour and past campaign performance to find room for differentiation.'],
+   ['Content strategy','Content pillars following the student decision journey — awareness → consideration → registration — with practical learning, mentor credibility and success stories.'],
+   ['PR strategy','KOL/KOC collaborations, group seeding and partnerships to expand reach and credibility with students and parents.'],
+   ['Campaign optimisation','Tracked performance and shifted content priorities based on engagement and conversion data.']],
+  outcome:['Built an integrated strategy tailored to a competitive education market.','Created a content and PR plan aligned with the recruitment journey.','Supported participant acquisition through data-driven optimisation.'],
+  imgs:['aie-2','aie-3','dfi-b1','dfi-b2','dfi-b3','dfi-b4','dfi-k1','dfi-k2','dfi-k3','dfi-k4','dfi-persona','dfi-seed','dfi-p1','dfi-p2','dfi-p3']},
+ {tab:'Competition 2025',type:'Data-driven Campaign Management',title:'Dash For Impact Competition 2025',kicker:'visibility, measurement, optimisation',
+  desc:'The flagship business competition of the Dash ecosystem, giving high school students hands-on experience through real case challenges and mentorship.',
+  challenge:'Several functional teams produced content across channels over many weeks. Without a central monitoring system it was hard to track progress, evaluate performance and spot execution gaps in time.',
+  role:'Marketing Team Leader',contrib:['KPI framework','Tracking dashboard','Execution monitoring','Performance analysis','Insight reporting'],
+  steps:[
+   ['KPI framework','Turned campaign objectives into measurable KPIs across awareness, engagement and recruitment.'],
+   ['Tracking system','Designed a central dashboard to monitor progress, content performance and team execution in real time.'],
+   ['Performance monitoring','Weekly reviews comparing results to targets and surfacing bottlenecks.'],
+   ['Optimisation & reporting','Turned data into recommendations that helped the team adjust priorities.']],
+  outcome:['Standardised campaign tracking for cross-functional collaboration.','Real-time visibility into campaign progress.','Faster, data-driven decisions and stronger accountability to KPIs.'],
+  lesson:'A successful campaign isn\'t just driven by creativity — it\'s driven by visibility, measurement and the ability to optimise while it\'s still running.',
+  link:'https://docs.google.com/spreadsheets/d/1lVLqaKarS7kLOgfPlo4I8MIZmUPb2E-o37H0hs5zSso/edit?usp=sharing',linkLabel:'Preview tracking tool ↗',
+  imgs:['aie-1','aie-5','dfi-c1','dfi-c2','dfi-c3','dfi-p4','dfi-p5','dfi-p6','dfi-p7','dfi-p8']}]},
+
+{id:'mac-ftu',cls:'f-mac',name:'Marketing Club of FTU',role:'Event Organizing · Bản Lĩnh Marketer 12 · Impact 2024',
+ about:'Bản Lĩnh Marketer is the biggest marketing competition organised by MaC FTU, giving university students real business cases, mentorship and networking with industry professionals.',
+ papers:['blm12','mac-logo','impact24'],
+ projects:[{tab:'Bản Lĩnh Marketer 12',type:'Event Organizing',title:'Bản Lĩnh Marketer 12 — Round 3 Assessment Center',kicker:'2 days, 1 night, zero chaos',
+  desc:'As an Organizing Committee member, I planned and coordinated the event operations for a seamless experience for participants and stakeholders.',
+  role:'Event Organizing Leader · Round 3',contrib:['Event planning','Timeline management','Stakeholder coordination','Logistics planning','On-site execution'],
+  steps:[
+   ['Event planning','Operational plan for the Assessment Center: flow, milestones, responsibilities and contingency plans — event plan, master timeline, run sheet.'],
+   ['Timeline & logistics','Coordinated transport, accommodation, venues, meals and activity schedules for a 2-day, 1-night programme.'],
+   ['Stakeholder coordination','Aligned schedules and updates with contestants, suppliers and internal teams.'],
+   ['On-site execution','Led the operations team on the day: kept time, coordinated teams and resolved surprises.']],
+  outcome:['Delivered the Round 3 Assessment Center on schedule.','Prepared every resource before the event through detailed checklists and timelines.','Kept contestants, suppliers and teams aligned throughout.'],
+  imgs:['mac-n7','mac-n6','mac-n5','mac-n3','mac-n4','mac-n2','mac-n1','mac-n8','blm-key','blm-1','blm-2','blm-3','blm-4','blm-5','blm-6','blm-7','blm-8','blm-plan1','blm-plan2']}]},
+
+{id:'other',cls:'f-oth',name:'Other projects',role:'NGƯỚC · VTV Times',
+ about:'More event experiences: organising an art exhibition with NGƯỚC – Youth Look Up!, and leading volunteers at a national finance competition by VTV Times.',
+ papers:['ng-logo','mv-logo'],
+ projects:[
+ {tab:'NGƯỚC · UP Exhibition',type:'Event Organizing',title:'UP Exhibition · NGƯỚC – Youth Look Up!',kicker:'behind every smooth visit',
+  desc:'UP Exhibition is an art exhibition organised by NGƯỚC – Youth Look Up!, a youth project that invites young people to look up, reflect and share their perspectives through art.',
+  role:'Member · Event Organizing Department',contrib:['Logistics & set-up','Guest reception','On-site staffing','Attendee experience'],
+  steps:[
+   ['Logistics & set-up','Prepared logistics items and set up the venue and facilities for the exhibition.'],
+   ['Reception & staffing','Welcomed guests and coordinated the team running each exhibition zone.'],
+   ['Attendee experience','Made sure every visitor had a smooth, enjoyable experience throughout the exhibition.']],
+  outcome:['Venue and facilities ready on time for opening.','Every exhibition zone staffed and running smoothly.','A welcoming, well-organised experience for visitors.'],
+  imgs:['ng-logo','ng-1','ng-2','ng-3','ng-4','ng-5','ng-6','ng-7']},
+ {tab:'Vũ Trụ Đồng Tiền 2026',type:'Event Organizing',title:'Vũ Trụ Đồng Tiền 2026 · VTV Times',kicker:'leading the volunteer force',
+  desc:'A national finance competition by VTV Times bringing together university teams from across Vietnam and promoting financial literacy among young people.',
+  role:'Volunteer Team Lead',contrib:['Volunteer recruitment & allocation','Shift & workforce planning','Briefing & training','On-site team management','Cross-functional coordination','Problem solving'],
+  steps:[
+   ['Workforce planning','Mapped manpower for registration, contestant support, backstage, logistics and audience management.'],
+   ['Team preparation','Briefed volunteers on roles, timeline, communication channels and contingencies.'],
+   ['On-site leadership','Assigned tasks, monitored performance, coordinated departments and handled issues fast.']],
+  outcome:['Every operational support role staffed and coordinated.','Smooth on-site execution across departments.'],
+  imgs:['mv-logo','vt-1','vt-2','vt-3','vt-4','vt-5','vt-6']}]}
+];
+
+const esc=s=>String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;');
+const F=document.getElementById('folders');
+F.innerHTML=ORGS.map((o,i)=>{
+  const papers=o.papers?`<div class="papers">${o.papers.map(p=>`<img src="${A(p)}" alt="">`).join('')}</div>`
+   :'';
+  const n=o.projects.length;
+  return `<button class="folder ${o.cls} rv" data-i="${i}" aria-label="Open ${esc(o.name)} folder">${papers}<div class="front"></div>
+   <div class="inner"><div class="ord">${o.id==='other'?'+ bonus':'0'+(i+1)}</div><h3>${esc(o.name)}</h3>${o.sub?`<div class="role" style="opacity:.8">${esc(o.sub)}</div>`:''}<div class="role">${esc(o.role)}</div>
+   <div class="meta"><span>${n} project${n>1?'s':''}</span><span class="open">Open ↗</span></div></div></button>`}).join('');
+
+const M=document.getElementById('modal'),S=document.getElementById('sheet');
+let cur=null,gal=[],gi=0;
+function openOrg(i,p=0){
+  const o=ORGS[i];cur=i;
+  const bg=getComputedStyle(F.children[i]).backgroundColor, fg=getComputedStyle(F.children[i]).color;
+  S.innerHTML=`<div class="mhead" style="background:${o.id==='other'?'var(--cream2)':bg};color:${fg}">
+     <button class="x" aria-label="Close">×</button>
+     <div class="ord">WORK FOLDER ${o.id==='other'?'· BONUS':'0'+(i+1)}</div><h2>${esc(o.name)}</h2>${o.sub?`<div class="role">${esc(o.sub)}</div>`:''}<div class="role">${esc(o.role)}</div><p class="about">${esc(o.about)}</p>
+     ${o.projects.length>1?`<div class="ptabs">${o.projects.map((pr,k)=>`<button data-p="${k}">${esc(pr.tab)}</button>`).join('')}</div>`:''}
+   </div><div class="mbody" id="mbody"></div>`;
+  S.querySelector('.x').onclick=closeOrg;
+  S.querySelectorAll('.ptabs button').forEach(b=>b.onclick=()=>showProj(+b.dataset.p));
+  showProj(p);
+  M.classList.add('on');document.body.style.overflow='hidden';M.scrollTop=0;
+  if(location.hash!=='#'+o.id) history.replaceState(null,'','#'+o.id);
+}
+function showProj(k){
+  const o=ORGS[cur],p=o.projects[k];
+  S.querySelectorAll('.ptabs button').forEach(b=>b.classList.toggle('on',+b.dataset.p===k));
+  gal=p.imgs;
+  const B=document.getElementById('mbody');
+  B.innerHTML=`<article class="proj">
+   <div class="proj-top"><div><span class="ptype">${esc(p.type)}</span><h3>${esc(p.title)}</h3><div class="kicker">${esc(p.kicker)}</div><p class="desc">${esc(p.desc)}</p>
+     ${p.challenge?`<div class="box challenge"><h4>The challenge</h4><p>${esc(p.challenge)}</p></div>`:''}</div>
+     <div class="box rolebox"><h4>My role</h4>${p.role?`<div class="r">${esc(p.role)}</div>`:''}<div class="ctags">${p.contrib.map(c=>`<span>${esc(c)}</span>`).join('')}</div>
+     ${p.brands?`<div class="brands"><div class="brand" style="background:#E8312A;color:#fff">Chixmax<small>Golden Gate brand</small></div><div class="brand" style="background:var(--yellow);color:#C2410C">Pizza360<small>Golden Gate brand</small></div></div>`:''}</div>
+   </div>
+   <div class="steps">${p.steps.map((s,j)=>`<div class="step"><div class="sn">${String(j+1).padStart(2,'0')}</div><h5>${esc(s[0])}</h5><p>${esc(s[1])}</p></div>`).join('')}</div>
+   <div class="outcome${p.stats?'':' solo'}"><div><h4>Outcome</h4><ul>${p.outcome.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>
+     ${p.stats?`<div class="stats">${p.stats.map(s=>`<div class="stat"><b>${esc(s[0])}</b><span>${esc(s[1])}</span></div>`).join('')}</div>`:''}
+     ${p.lesson?`<div class="lesson">“${esc(p.lesson)}”</div>`:''}</div>
+   <div class="gal-h"><h4>Gallery${p.imgs.length?` · ${p.imgs.length}`:''}</h4><div class="btns">${p.link2?`<a class="full" style="background:#fff" href="${p.link2[1]}" target="_blank" rel="noopener">${esc(p.link2[0])} ↗</a>`:''}${p.link?`<a class="full" href="${p.link}" target="_blank" rel="noopener">${esc(p.linkLabel||'See full version ↗')}</a>`:''}</div></div>
+   ${p.imgs.length?`<div class="gallery">${p.imgs.map((g,j)=>`<button data-g="${j}" class="${A(g).endsWith('.png')?'png':''}"><img src="${A(g)}" alt="${esc(p.title)} image ${j+1}" loading="lazy"></button>`).join('')}</div>`
+    :`<div class="placeholder"><b>Photos coming soon</b>Campaign visuals, KOL content and POSM photos for Chixmax &amp; Pizza360 will live here.</div>`}
+  </article>`;
+  B.querySelectorAll('.gallery button').forEach(b=>b.onclick=()=>openLb(+b.dataset.g));
+  M.scrollTo({top:0,behavior:'smooth'});
+}
+function closeOrg(){M.classList.remove('on');document.body.style.overflow='';cur=null;if(location.hash) history.replaceState(null,'',location.pathname+location.search);}
+F.querySelectorAll('.folder').forEach(b=>b.onclick=()=>openOrg(+b.dataset.i));
+M.addEventListener('click',e=>{if(e.target===M)closeOrg()});
+
+const LB=document.getElementById('lb'),LI=document.getElementById('lbimg');
+function openLb(j){gi=j;LI.src=A(gal[gi]);LB.classList.add('on')}
+function step(d){gi=(gi+d+gal.length)%gal.length;LI.src=A(gal[gi])}
+LB.querySelector('.lx').onclick=()=>LB.classList.remove('on');
+LB.querySelector('.lp').onclick=()=>step(-1);LB.querySelector('.ln').onclick=()=>step(1);
+LB.addEventListener('click',e=>{if(e.target===LB)LB.classList.remove('on')});
+document.addEventListener('keydown',e=>{
+  if(LB.classList.contains('on')){if(e.key==='Escape')LB.classList.remove('on');if(e.key==='ArrowLeft')step(-1);if(e.key==='ArrowRight')step(1);return}
+  if(e.key==='Escape'&&cur!==null)closeOrg();
+});
+function route(){const h=location.hash.slice(1);const i=ORGS.findIndex(o=>o.id===h);if(i>=0)openOrg(i);else if(cur!==null&&!['about','skills','work','contact','top',''].includes(h))closeOrg();}
+window.addEventListener('hashchange',route);route();
+
+
+document.querySelectorAll('[data-split]').forEach((el,k)=>{el.innerHTML=[...el.textContent].map((c,i)=>`<span class="ch" style="animation-delay:${(k*9+i)*45}ms">${c}</span>`).join('')});
+/* ribbon marquee */
+const mqs=[...document.querySelectorAll('.mq')];let off=0;
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+function tick(){off=(off+0.04)%25;mqs.forEach((t,k)=>t.setAttribute('startOffset',(k%2?-off:off-25)+'%'));if(!reduce)requestAnimationFrame(tick)}
+tick();
+
+/* reveal */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
